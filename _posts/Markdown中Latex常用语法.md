@@ -20,33 +20,33 @@ tags:
 
 文章中，标签以表格的形式呈现。**如果出现`/`的情况，代表某字符没有此形式。** *（如不存在`\varalpha`，这一格使用`/`填充）*
 
-## 1. 常用希腊字母表
+## 1. 希腊字母表
 
 | Name       |   Display    | Capital Case |   Display    | Var Case      |     Display     |
 | ---------- | :----------: | ------------ | :----------: | ------------- | :-------------: |
-| `\alpha`   |  $$\alpha$$  | `\Alpha`     |  $$\Alpha$$  | / |    /    |
-| `\beta`    |  $$\beta$$   | `\Beta`      |  $$\Beta$$   | / |    /    |
+| `\alpha`   |  $$\alpha$$  | /   |  /  | / |    /    |
+| `\beta`    |  $$\beta$$   | /     |  /  | / |    /    |
 | `\gamma`   |  $$\gamma$$  | `\Gamma`     |  $$\Gamma$$  | / |    /    |
 | `\theta`   |  $$\theta$$  | `\Theta`     |  $$\Theta$$  | `\vartheta`   |  $$\vartheta$$  |
-| `\mu`      |   $$\mu$$    | `\Mu`        |   $$\Mu$$    | / |    /    |
+| `\mu`      |   $$\mu$$    | /            |   /   | / |    /    |
 | `\delta`   |  $$\delta$$  | `\Delta`     |  $$\Delta$$  | / |    /    |
-| `\epsilon` | $$\epsilon$$ | `\Epsilon`   | $$\Epsilon$$ | `\varepsilon` | $$\varepsilon$$ |
+| `\epsilon` | $$\epsilon$$ | /  | / | `\varepsilon` | $$\varepsilon$$ |
 | `\sigma`   |  $$\sigma$$  | `\Sigma`     |  $$\Sigma$$  | `\varsigma`   |  $$\varsigma$$  |
 | `\pi`      |   $$\pi$$    | `\Pi`        |   $$\Pi$$    | `\varpi`      |   $$\varpi$$    |
 | `\omega`   |  $$\omega$$  | `\Omega`     |  $$\Omega$$  | / |    /    |
 | `\xi`      |   $$\xi$$    | `\Xi`        |   $$\Xi$$    | / |    /    |
-| `\zeta`    |  $$\zeta$$   | `\zeta`      |  $$\Zeta$$   | / |    /    |
-| `\chi`     |   $$\chi$$   | `\Chi`       |   $$\Chi$$   | / |    /    |
-| `\rho`     |   $$\rho$$   | `\Rho`       |   $$\Rho$$   | `\varrho`     |   $$\varrho$$   |
+| `\zeta`    |  $$\zeta$$   | /     |  /  | / |    /    |
+| `\chi`     |   $$\chi$$   | /      |   /   | / |    /    |
+| `\rho`     |   $$\rho$$   | /      |   /   | `\varrho`     |   $$\varrho$$   |
 | `\phi`     |   $$\phi$$   | `\Phi`       |   $$\Phi$$   | `\varphi`     |   $$\varphi$$   |
-| `\eta`     |   $$\eta$$   | `\Eta`       |   $$\Eta$$   | / |    /    |
+| `\eta`     |   $$\eta$$   | /      |   /   | / |    /    |
 | `\lambda`  | $$\lambda$$  | `\Lambda`    | $$\Lambda$$  | / |    /    |
-| `\kappa`   |  $$\kappa$$  | `\kappa`     |  $$\Kappa$$  | `\varkappa` |    $$\varkappa$$     |
-| `\nu`      |   $$\nu$$    | `\Nu`        |   $$\Nu$$    | / |    /    |
+| `\kappa`   |  $$\kappa$$  | /    |  /  | `\varkappa` |    $$\varkappa$$     |
+| `\nu`      |   $$\nu$$    | /       |   /   | / |    /    |
 | `\upsilon` | $$\upsilon$$ | `\Upsilon`   | $$\Upsilon$$ | / |    /    |
 | `\psi`     |   $$\psi$$   | `\Psi`       |   $$\Psi$$   | / |    /    |
-| `\tau`     |   $$\tau$$   | `\Tau`       |   $$\Tau$$   | / |    /    |
-| `\iota`    |  $$\iota$$   | `\Iota`      |  $$\Iota$$   | / |    /    |
+| `\tau`     |   $$\tau$$   | /            |      /       | / |    /    |
+| `\iota`    |  $$\iota$$   | /     |  /  | / |    /    |
 
 ## 2.常用特殊字符表
 
@@ -99,49 +99,64 @@ tags:
 
 ## 3. 公式语法
 
-1. 上下标`_{下标}^{上标}`：
-   $$ y = x_i^{a_1^2} $$
+1. 上下标`_{下标}^{上标}`：  
+   | 语法              | 输出                  |
+   | ----------------- | --------------------- |
+   | `y = x_i^{a_1^2}` | $$ y = x_i^{a_1^2} $$ |
 
-- 公式中插入文本`\mbox{}`：
-    $$ y = x^2 \; \mbox{(二次函数)} $$
+
+2. 公式中插入文本`\mbox{}`：
+   | 语法              | 输出                  |
+   | ----------------- | --------------------- |
+   | `y = x^2 \; \mbox{(二次函数)}` | $$ y = x^2 \; \mbox{(二次函数)} $$ |
+   
+
 - 公式中插入空格`\,  \;  \quad  \qquad`间隔依次变宽：
     $$ ab  \,  a\,b  \,  a\;b  \,  a\quad b  \,  a\qquad b $$​
+    
 - 字母上方横线`\overline{}, \bar{}`：
     $$ \overline{xyz} \mbox{ 或 } \bar{x} $$
+    
 - 字母下方横线`\underline{}`：
     $$ \underline{ABC} $$
+    
 - 字母上方波浪线`\tilde{}, \widetilde{}`：
     $$ \tilde{A} \mbox{ 或 } \widetilde{ABC} $$
+    
 - 字母上方尖号^`\hat{}, \widehat{}`：
     $$ \hat{A} \mbox{ 或 } \widehat{ABC} $$
+    
 - 字母上方箭头`\vec{}, \overleftarrow{}, \overrightarrow{}`：
     $$ \vec{ab} \mbox{ 或 } \overleftarrow{ab} \mbox{ 或 } \overrightarrow{ab} $$
+    
 - 字母上方花括号`\overbrace{}`，或下方花括号`\underbrace{}`：
     $$ \overbrace{1+2+3} \mbox{ 或 } \underbrace{1+2+3} $$
+    
 - 字母上方点号`\dot{}, \ddot{}`：
     $$ \dot{a} \mbox{ 或 } \ddot{a} $$
+    
 - 省略号`\dots, \cdots`
     $$ 1,2,\dots  \qquad  1,2,\cdots $$
 
-- 积分`\int_{}^{}`：
-    $$ \int_{-\infty}^{+\infty} f(x) \mathrm{d}x $$
+- 积分`\int_{}^{}`：  
+    $$ \int_{-\infty}^{+\infty} f(x) \mathrm{d}x $$​  ​
 
     双重积分`\iint`：$$ \iint_{-\infty}^{+\infty} f(x,y) \mathrm{d}x \mathrm{d}y $$  
     行内积分：$$\int_{-\infty}^{+\infty} f(x) \mathrm{d}x$$  
     行内积分limits模式`\int\limits_{}^{}`：$$\int\limits_{-\infty}^{+\infty} f(x) \mathrm{d}x$$  
-    行内积分display模式`\displaystyle \int_{}^{}`：$$\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$$​  ​​​
+    行内积分display模式`\displaystyle \int_{}^{}`：  $$\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$$​​​  ​​​  
 
-    圆圈积分`\oint`：$$ \oint_{-\infty}^{+\infty} $$​  
+    圆圈积分`\oint`：$$ \oint_{-\infty}^{+\infty} $$​​    
 
-- 求和`\sum_{}^{}`：
-    $$ \sum_{i=1}^{n} i^2 $$​  
+- 求和`\sum_{}^{}`：  
+    $$ \sum_{i=1}^{n} i^2 $$​​​    
 
     行内求和：$$\sum_{i=1}^{n} i^2$$  
     行内求和limits模式`\sum\limits_{}^{}`：$$\sum\limits_{i=1}^{n} i^2$$  
-    行内求和display模式`\displaystyle \sum_{}^{}`：$$\displaystyle \sum_{i=1}^{n} i^2$$​  ​​
+    行内求和display模式`\displaystyle \sum_{}^{}`：  $$\displaystyle \sum_{i=1}^{n} i^2$$​​​  ​​  
 
-- 求乘积`\prod_{}^{}`：
-    $$ \prod_{i=1}^{n} a_i $$
+- 求乘积`\prod_{}^{}`：  
+    $$ \prod_{i=1}^{n} a_i $$​
 
 - 分数`\frac{up}{down}`：
     $$ x_1,x_2 = \frac{b^2 \pm 4ac}{2a} $$
@@ -149,7 +164,9 @@ tags:
 - 根号`\sqrt`：
     $$ r = \sqrt{x^2+y^2} $$
 
-    多次根号`\sqrt[n]`： $$ x^{2/3} = \sqrt[3]{x^2} $$
+    多次根号`\sqrt[n]`：   
+    
+    $$ x^{2/3} = \sqrt[3]{x^2} $$​
 
 ## 4. 方程组
 
@@ -199,14 +216,7 @@ tags:
     f(x) = \begin{cases}
     x^2 \qquad & a \gt 0 \\
     e^x \qquad & a \le 0
-    \end{cases} 
+    \end{cases}
     $$
-    
-    
-    
-    ## 5. 参考资料
-    
-    1. [Markdown中编写LaTeX数学公式](https://blog.csdn.net/fzch_struggling/article/details/44998901?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommen)
-    2. 
-    
+
     
