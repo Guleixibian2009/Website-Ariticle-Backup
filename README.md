@@ -16,4 +16,4 @@
 
 ## 声明
 
-最后声明一下，这个仓库莫名进了 [某榜单前15](https://awesomeopensource.com/projects/github/markdown/python?mode=) ，不过是因为有2个 `star` 而已，千万不要~~不给 `star` ~~迷信！
+最后声明一下，这个仓库莫名进了 [某榜单前15](https://awesomeopensource.com/projects/github/markdown/python?mode=) ，不过是因为有2个 `star` 而已，千万不要~~不给 `star`~~ 迷信！

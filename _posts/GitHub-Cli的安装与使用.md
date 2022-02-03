@@ -2,9 +2,10 @@
 title: GitHub-Cli 的安装与使用
 date: 2022-01-09 18:58
 categories:
-- [编程 , GitHub , GitHub-Cli]
+- [GitHub , GitHub-Cli]
 tags:
-- [Github , GitHub-Cli]
+- Github
+- GitHub-Cli
 
 ---
 
@@ -31,10 +32,10 @@ tags:
  ```bash
  $ gh --version  
  ```
-如果CMD返回给你有用的信息（*而不是“gh“不是内部或外部命令，也不是可运行的程序或批处理文件。*），那么说明你已经安装好了！
+如果`CMD`返回给你有用的信息（*而不是“gh“不是内部或外部命令，也不是可运行的程序或批处理文件。*），那么说明你已经安装好了！
 
-### 2. Chocolatey安装
-使用过Chocolatey的同志直接运行下面的命令！
+### 2. `Chocolatey`安装
+使用过`Chocolatey`的同志直接运行下面的命令！
 
 ```bash
 $ clist gh
@@ -55,12 +56,12 @@ $ gh auth login  //这很简单吧！
 
 *图片来源于网络……所以不是我的用户名*  
 两种登陆方法：你可以使用**浏览器登陆账号**后登录`GitHub-Cli`，也可以使用**粘贴个人验证码**登录。由于`GitHub-Cli`的内核也是用到`Git`的，所以它也会要求你配置`Git`，选择`SSH`或者`HTTPS`貌似都差不多。  
-如果最后它提示你类似Logged in as …说明你成功了！！  
+如果最后它提示你类似`Logged in as …`说明你成功了！！  
 
 ## 四.关于你的仓库
-使用“项目托管平台”你没有仓库怎么行？用你本地的Git或者在线创建一个仓库，然后你就可以操作了。  
+使用“项目托管平台”你没有仓库怎么行？用你本地的`Git`或者在线创建一个仓库，然后你就可以操作了。  
 ![New_Repo](https://s4.ax1x.com/2022/01/08/7iGt6f.md.png)  
-创建一个仓库后，把它拉取到本地。这个时候GitHub-Cli就能派上用场了：  
+创建一个仓库后，把它拉取到本地。这个时候`GitHub-Cli`就能派上用场了：  
 
 ```bash
 $ gh repo clone {username}/{repo_name}
