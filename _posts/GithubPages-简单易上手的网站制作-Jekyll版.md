@@ -189,12 +189,18 @@ permalink: /404.html
 其实这个很容易实现，其实是一段`JavaScript`脚本。直接把如下脚本插在`404.md`最底下：
 
 ```HTML
-<script language="javascript" type="text/javascript"> 
-	setTimeout("javascript:location.href='/'", 10000); 
+<script type="text/javascript"> 
+    setTimeout("javascript:location.href='/'", 10000); 
 </script>
 ```
 
 其中，`setTimeout`函数就是定时。而`href='/'`就指的是定时回到根目录。`10000`指10秒。也就是说，10秒钟后返回主页。
+
+---
+
+## 5. `GitHub Pages`的工作原理
+
+说到这大家可能会想，`Pages`能有什么工作原理？
 
 ---
 
