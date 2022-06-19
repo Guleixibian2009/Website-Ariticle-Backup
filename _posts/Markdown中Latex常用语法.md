@@ -1,5 +1,5 @@
 ---
-title: Markdown中Latex常用语法
+title: 【转】Markdown中Latex常用语法
 date: 2021-11-28 19:35:40
 categories:
 - [编程 , Markdown , LaTex]
@@ -9,7 +9,7 @@ tags:
 - Maths
 ---
 
-这篇文章是我<kbd>Ctrl+C</kbd><kbd>Ctrl+V</kbd>过来的，之后我还会再进行修改的，先凑活看着的吧......有些 $\LaTeX$标签可能显示不出来，同志们这是编译器的问题，因人而异......
+这篇文章是我<kbd>Ctrl+C</kbd><kbd>Ctrl+V</kbd>过来的，现在正在进行修改。有些 $\LaTeX$标签可能显示不出来，同志们这是编译器的问题，因人而异......
 
 ## 0. LaTeX 是什么？
 
@@ -19,9 +19,11 @@ tags:
 
 <!--more-->
 
-### 0.1
+### 0.1 写在前面
 
-文章中，标签以表格的形式呈现。**如果出现`/`的情况，代表某字符没有此形式。** *（如不存在`\varalpha`，这一格使用`/`填充）*
+文章中，标签以表格的形式呈现。**如果出现`/`的情况，代表某字符没有此形式。** *（如不存在`\varalpha`，这一格使用`/`填充）*  
+
+想要补充我没写上的字符？可以直接滚动到页尾，登录`GitHub`账号后在聊天框里留言，`Gitalk`会自动同步到`GitHub issue`中，并用邮件通知我！
 
 ## 1. 希腊字母表
 
@@ -105,19 +107,19 @@ tags:
 
 ## 3. 公式语法
 
-1. 上下标`_{下标}^{上标}`：  
+### 3.1 上下标
 
-| 语法                | 输出                    |
-|:-----------------:|:---------------------:|
-| `y = x_i^{a_1^2}` | $$ y = x_i^{a_1^2} $$ |
+| 语法                | 输出                 |
+|:-----------------:|:------------------:|
+| `y = x_i^{a_1^2}` | $ y = x_i^{a_1^2}$ |
 
-2. 公式中插入文本（直接上）：
+### 3.2 公式中插入文本（直接上）
 
 | 语法                  | 输出                     |
 |:-------------------:|:----------------------:|
 | `y = x^2 \; (二次函数)` | $ y = x^{2} \; (二次函数)$ |
 
-3. 公式中插入空格`\,` `\;` `\quad` `\qquad`间隔依次变宽：
+### 3.3 公式中插入空格
 
 | 语法           | 输出           |
 |:------------:|:------------:|
@@ -127,34 +129,34 @@ tags:
 | `a \quad b`  | $a \quad b$  |
 | `a \qquad b` | $a \qquad b$ |
 
-4. 字母上方横线`\overline{}`,`\bar{}`：
+### 3.4 字母上方横线
 
 | 语法               | 输出               |
 |:----------------:|:----------------:|
 | `\overline{ABC}` | $\overline{ABC}$ |
 | `\bar{A}`        | $\bar{A}$        |
 
-5. 字母下方横线`\underline{}`：
+### 3.5 字母下方横线
 
 | 语法                | 输出                |
 |:-----------------:|:-----------------:|
 | `\underline{ABC}` | $\underline{ABC}$ |
 
-6. 字母上方波浪线`\tilde{}`, `\widetilde{}`：
+### 3.6 字母上方波浪线
 
 | 语法                  | 输出                  |
 |:-------------------:|:-------------------:|
 | `\tilde{\rho}`      | $\tilde{\rho}$      |
 | `\widetilde{A1B2C}` | $\widetilde{A1B2C}$ |
 
-7. 字母上方尖号`\hat{}, \widehat{}`：
+### 3.7 字母上方尖号
 
 | 语法              | 输出              |
 |:---------------:|:---------------:|
 | `\hat{A}`       | $\hat{A}$       |
 | `\widehat{ABC}` | $\widehat{ABC}$ |
 
-8. 字母上方箭头`\vec{}, \overleftarrow{}, \overrightarrow{}`：
+### 3.8 字母上方箭头
 
 | 语法                    | 输出                    |
 |:---------------------:|:---------------------:|
@@ -162,27 +164,50 @@ tags:
 | `\overleftarrow{ab}`  | $\overleftarrow{ab}$  |
 | `\overrightarrow{ab}` | $\overrightarrow{ab}$ |
 
-9. 字母上方花括号`\overbrace{}`，或下方花括号`\underbrace{}`：
-    $ \overbrace{1+2+3} \mbox{ 或 } \underbrace{1+2+3} $
-- 字母上方点号`\dot{}, \ddot{}`：
-    $ \dot{a} \mbox{ 或 } \ddot{a} $
+### 3.9 字母上方或下方花括号
 
-- 省略号`\dots, \cdots`
-    $ 1,2,\dots  \qquad  1,2,\cdots $
+| 语法                   | 输出                   |
+|:--------------------:|:--------------------:|
+| `\overbrace{1+2+3}`  | $\overbrace{1+2+3}$  |
+| `\underbrace{1+2+3}` | $\underbrace{1+2+3}$ |
 
-- 积分`\int_{}^{}`：  
-    $ \int_{-\infty}^{+\infty} f(x) \mathrm{d}x $  ​
-  
-    双重积分`\iint`：$ \iint_{-\infty}^{+\infty} f(x,y) \mathrm{d}x \mathrm{d}y $ 
-    行内积分：$$nt_{-\infty}^{+\infty} f(x) \mathrm{d}x$$$  行内积分limits模式`\int\limits_{}^{}`：$$\$\limits_{-\infty}^{+\infty} f(x) \mathrm{d}x$$  $行内积分display模式`\displaystyle \int_{}^{}`：  $$\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$$​​​ $​  
-  
-    圆圈积分`\oint`：$ \oint_{-\infty}^{+\infty} $​    
+### 3.10 字母上方点号
 
-- 求和`\sum_{}^{}`：  
-    $ \sum_{i=1}^{n} i^2 $​​    
-  
-    行内求和：$\sum_{i=1}^{n} i^2$ 
-    行内求和limits模式`\sum\limits_{}^{}`：$$um\limits_{i=1}^{n} i^2$$$  行内求和display模式`\displaystyle \sum_{}^{}`：  $$\$playstyle \sum_{i=1}^{n} i^2$$​​$​​  
+| 语法           | 输出           |
+|:------------:|:------------:|
+| `\dot{A}`    | $\dot{A}$    |
+| `\ddot{ABC}` | $\ddot{ABC}$ |
+
+### 3.11 省略号
+
+| 语法           | 输出           |
+|:------------:|:------------:|
+| `1,2,\dots`  | $1,2,\dots$  |
+| `1,2,\cdots` | $1,2,\cdots$ |
+
+### 3.12 积分：
+
+#### 3.12.1 基本形式
+
+| 语法                                                         | 输出                                                         |
+|:----------------------------------------------------------:|:----------------------------------------------------------:|
+| `\int_{-\infty}^{+\infty} f(x) \mathrm{d}x`                | $\int_{-\infty}^{+\infty} f(x) \mathrm{d}x$                |
+| `\iint_{-\infty}^{+\infty} f(x,y) \mathrm{d}x \mathrm{d}y` | $\iint_{-\infty}^{+\infty} f(x,y) \mathrm{d}x \mathrm{d}y$ |
+| `\oint_{-\infty}^{+\infty}`                                | $\oint_{-\infty}^{+\infty}$                                |
+
+#### 3.12.2 行内模式
+
+| 形式               | 语法                                                        | 输出                                                        |
+|:----------------:|:---------------------------------------------------------:|:---------------------------------------------------------:|
+| `limits`模式       | `\int\limits_{-\infty}^{+\infty} f(x) \mathrm{d}x`        | $\int\limits_{-\infty}^{+\infty} f(x) \mathrm{d}x$        |
+| `displaystyle`模式 | `\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x` | $\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$ |
+
+### 3.13 求和`\sum_{}^{}`：
+
+$ p = \sum\limits_{n=1}^{100} a_n $​​    
+
+行内求和：$\sum_{i=1}^{n} i^2$ 
+行内求和limits模式`\sum\limits_{}^{}`：$\sum\limits_{i=1}^{n} i^2$  行内求和display模式`\displaystyle \sum_{}^{}`：  $ \displaystyle\sum_{i=1}^{n} i^2 $$​​$​​  
 
 - 求乘积`\prod_{}^{}`：  
     $ \prod_{i=1}^{n} a_i $
@@ -214,25 +239,9 @@ tags:
   \end{equation}
   ```
   
-  注意：在 markdown 环境下，某些特殊字符，如'\', '\*'等，会首先被 markdown 语法转义，然后再被 Latex 转义。
-  因此有时候 '\{'需要写作'\\{'，'\*'需要写作'\\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定
-
-```
+  注意：在 markdown 环境下，某些特殊字符，如'\', '\*'等，会首先被 markdown 语法转义，然后再被 Latex 转义。因此有时候 '\{'需要写作'\\{'，'\*'需要写作'\\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定。  
+  
   **注**：如果各个方程需要在某个字符处对齐（如等号对齐），只需在所有要对齐的字符前加上 `&` 符号。如果不需要公式编号，只需在宏包名称后加上 `*` 号。
-
-$$
-\begin{equation}
-\left\{ 
-\begin{aligned}
-\min \quad&{f=a-b}\\
-{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \\
-(c+d)(e+f)&=e \\
-(df+cg)&=0 \\
-(adv-ert)(e+f)&=e
-\end{aligned} \right.
-\end{equation}
-$$
-```
 
 $$
 \begin{equation}
