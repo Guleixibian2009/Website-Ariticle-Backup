@@ -38,16 +38,19 @@ ___
 ![hosts3](https://z3.ax1x.com/2021/08/15/fcKXu9.png)
 
 用记事本打开，这个文件里在没有改动的情况下只有几行注释，忽略即可。  
-现在我们到 [`Ipaddress`](https://www.ipaddress.com) 查下面三个网址的`IP`，现在查询如下：
+现在我们到 [`Ipaddress`](https://www.ipaddress.com) 或者[`itdog`](https://www.itdog.cn/ping/)查下面三个网址的`IP`，现在（其实是很久很久以前）查询如下：
 
-| 网址                             | 解释   | IP               |
-|:------------------------------:|:----:|:----------------:|
-| `github.com`                   | 这是主站 | ~~140.82.114.4~~ |
-| `assets-cdn.github.com`        | 动态资源 | 185.199.108.153  |
-| `assets-cdn.github.com`        | 动态资源 | 185.199.109.153  |
-| `assets-cdn.github.com`        | 动态资源 | 185.199.110.153  |
-| `assets-cdn.github.com`        | 动态资源 | 185.199.111.153  |
-| `github.global.ssl.fastly.net` | 静态资源 | 199.232.69.194   |
+| 网址                              | 解释   | IP               |
+|:-------------------------------:|:----:|:----------------:|
+| `github.com`                    | 这是主站 | ~~140.82.114.4~~ |
+| `raw.githubusercontent.com`     | 动态资源 | 185.199.108.153  |
+| `raw.githubusercontent.com`     | 动态资源 | 185.199.109.153  |
+| `raw.githubusercontent.com`     | 动态资源 | 185.199.110.153  |
+| `raw.githubusercontent.com`     | 动态资源 | 185.199.111.153  |
+| `avatars.githubusercontent.com` | 你的头像 | 185.199.108.133  |
+| `avatars.githubusercontent.com` | 你的头像 | 185.199.109.133  |
+| `avatars.githubusercontent.com` | 你的头像 | 185.199.110.133  |
+| `avatars.githubusercontent.com` | 你的头像 | 185.199.111.133  |
 
 注意，写入`hosts`的格式如下：
 
@@ -59,15 +62,18 @@ IPAddress HostName
 
 ```hosts
 140.82.114.4    github.com  
-185.199.108.153 assets-cdn.github.com  
-185.199.109.153 assets-cdn.github.com  
-185.199.110.153 assets-cdn.github.com  
-185.199.111.153 assets-cdn.github.com
-199.232.69.194  github.global.ssl.fastly.net
+185.199.108.153 raw.githubusercontent.com  
+185.199.109.153 raw.githubusercontent.com  
+185.199.110.153 raw.githubusercontent.com  
+185.199.111.153 raw.githubusercontent.com
+185.199.108.133 avatars.githubusercontent.com
+185.199.109.133 avatars.githubusercontent.com
+185.199.110.133 avatars.githubusercontent.com
+185.199.111.133 avatars.githubusercontent.com
 ```
 
 按照这样的格式输入到 `hosts` 文件里，再访问 `Github` 应该就很快了！  
-**小提示：每次只用查主站的`IP`就好了，其他的基本不会变\~**  
+**小提示：每次只用查主站的`IP`就好了，其他的基本不会变\~你可以在`itdog`中选择一些类似镜像的`IP`，比如`20.205.243.166`等等。**
 
 ___
 
@@ -84,29 +90,29 @@ git clone https://github.com/guleixibian2009/guleixibian2009.github.io.git
 但如果你用了镜像网站，速度会极快：
 
 ```git
-git clone https://github.com.cnpmjs.org/guleixibian2009/guleixibian2009.github.io.git
+git clone https://hub.nuaa.cf/guleixibian2009/guleixibian2009.github.io.git
 ```
 
-`https://github.com.cnpmjs.org`是一个极为神奇的网站：作为一个镜像网站，他把几百`KiB/S`的速度提到了几十`MiB/S`，速度大幅提升！  
-但这样会有一个`bug`：`Git`会把你`Push`回去的网址变`https://github.com.cnpmjs.org`。很尴尬的是，这并不是你想要`Push`回去的地址，于是，经过无数尝试，我发现在`.git`文件夹（是隐藏的）中有一个`config`文件，里边是这样写的：
+`https://hub.nuaa.cf`是一个极为神奇的网站：作为一个镜像网站，他把几`KiB/S`的速度提到了几百`MiB/S`，速度大幅提升！  
+但这样会有一个`bug`：`Git`会把你`Push`回去的网址变`https://hub.nuaa.cf`。很尴尬的是，这并不是你想要`Push`回去的地址，于是，经过无数尝试，我发现在`.git`文件夹（是隐藏的）中有一个`config`文件，里边是这样写的：
 
 ```
 ......
 
 [remote "origin"]
-    url = https://github.com.cnpmjs.org/guleixibian2009/guleixibian2009.github.io.git
+    url = https://hub.nuaa.cf/guleixibian2009/guleixibian2009.github.io.git
     fetch = +refs/heads/*:refs/remotes/origin/*
 
 ......
 ```
 
-有没有注意到那个`url`后面跟了一个`https://github.com.cnpmjs.org`？
+有没有注意到那个`url`后面跟了一个`https://hub.nuaa.cf`？
 为了让它“恢复正常”，要把它改回`https://github.com`。  
 现在，应该就可以了吧！_（如果没有`.git`文件夹说明你没有`Push`过，或者这不是你的项目）_
 
 ### 2.2 网页版
 
-`https://github.com.cnpmjs.org`并不是`GitHub`的唯一镜像。如果你觉得`GitHub`太慢，
+`https://hub.nuaa.cf`并不是`GitHub`的唯一镜像。如果你觉得`GitHub`太慢，
 你可以注册一个中文版`GitHub`，叫做`Gitee`。  
 注册后，点击`+`号，并且导入你的`GitHub`仓库，继续下载就超级快乐啦！
 ![import1](https://z3.ax1x.com/2021/08/15/fcKjBR.png)

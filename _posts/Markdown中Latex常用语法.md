@@ -9,7 +9,7 @@ tags:
 - Maths
 ---
 
-这篇文章是我<kbd>Ctrl+C</kbd><kbd>Ctrl+V</kbd>过来的，现在正在进行修改。有些 $\LaTeX$标签可能显示不出来，同志们这是编译器的问题，因人而异......
+这篇文章是我转载过来的（很抱歉的是原网址已经找不到了），自己进行了一些格式上的修改。有些 $\LaTeX$标签可能显示不出来，同志们这是编译器的问题，因人而异......
 
 ## 0. LaTeX 是什么？
 
@@ -24,6 +24,18 @@ tags:
 文章中，标签以表格的形式呈现。**如果出现`/`的情况，代表某字符没有此形式。** *（如不存在`\varalpha`，这一格使用`/`填充）*  
 
 想要补充我没写上的字符？可以直接滚动到页尾，登录`GitHub`账号后在聊天框里留言，`Gitalk`会自动同步到`GitHub issue`中，并用邮件通知我！
+
+`Markdown`中插入公式的方式：
+
+1. 行内：`$公式$`
+
+2. 公式块：
+
+```md
+$$
+公式
+$$
+```
 
 ## 1. 希腊字母表
 
@@ -202,61 +214,69 @@ tags:
 | `limits`模式       | `\int\limits_{-\infty}^{+\infty} f(x) \mathrm{d}x`        | $\int\limits_{-\infty}^{+\infty} f(x) \mathrm{d}x$        |
 | `displaystyle`模式 | `\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x` | $\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$ |
 
-### 3.13 求和`\sum_{}^{}`：
+### 3.13 求和
 
-$ p = \sum\limits_{n=1}^{100} a_n $​​    
+| 模式          | 语法                                | 输出                                |
+|:-----------:|:---------------------------------:|:---------------------------------:|
+| 普通          | `p = \sum_{n=1}^{100} a_n`        | $ p = \sum_{n=1}^{100} a_n $      |
+| `limits`模式  | `p = \sum\limits_{n=1}^{100} a_n` | $p = \sum\limits_{n=1}^{100} a_n$ |
+| `display`模式 | `\displaystyle\sum_{i=1}^{n} i^2` | $\displaystyle\sum_{i=1}^{n} i^2$ |
 
-行内求和：$\sum_{i=1}^{n} i^2$ 
-行内求和limits模式`\sum\limits_{}^{}`：$\sum\limits_{i=1}^{n} i^2$  行内求和display模式`\displaystyle \sum_{}^{}`：  $ \displaystyle\sum_{i=1}^{n} i^2 $$​​$​​  
+### 3.14 求乘积
 
-- 求乘积`\prod_{}^{}`：  
-    $ \prod_{i=1}^{n} a_i $
+| 模式         | 语法                           | 输出                           |
+|:----------:|:----------------------------:|:----------------------------:|
+| 普通         | `\prod_{i=1}^{n} a_i`        | $\prod_{i=1}^{n} a_i$        |
+| `limits`模式 | `\prod\limits_{i=1}^{n} a_i` | $\prod\limits_{i=1}^{n} a_i$ |
 
-- 分数`\frac{up}{down}`：
-    $ x_1,x_2 = \frac{b^2 \pm 4ac}{2a} $
+### 3.15 分数
 
-- 根号`\sqrt`：
-    $ r = \sqrt{x^2+y^2} $
-  
-    多次根号`\sqrt[n]`：   
-  
-    $ x^{2/3} = \sqrt[3]{x^2} $
+| 语法                                 | 输出                                 |
+|:----------------------------------:|:----------------------------------:|
+| `x_1,x_2 = \frac{b^2 \pm 4ac}{2a}` | $x_1,x_2 = \frac{b^2 \pm 4ac}{2a}$ |
+
+### 3.16 根号
+
+| 语法                        | 输出                        |
+|:-------------------------:|:-------------------------:|
+| `r = \sqrt{x^2+y^2}`      | $r = \sqrt{x^2+y^2}$      |
+| `x^{2/3} = \sqrt[3]{x^2}` | $x^{2/3} = \sqrt[3]{x^2}$ |
 
 ## 4. 方程组
 
-- 左侧花括号
-  
-  ```latex
-  \begin{equation}
-  \left\{ 
-  \begin{aligned}
-  \min \quad&{f=a-b}\ \
-  {s.t.}\quad &{a =b(x), \quad x\in [0,L] } \ \
-  (c+d)(e+f)=e \ \
-  (df+cg)=0 \ \
-  (adv-ert)(e+f)=e
-  \end{aligned} \right.
-  \end{equation}
-  ```
-  
+### 4.1 左侧花括号
+
+```latex
+\begin{equation}
+\left\{ 
+\begin{aligned}
+\min \quad&{f=a-b}\ \
+{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \ \
+(c+d)(e+f)=e \ \
+(df+cg)=0 \ \
+(adv-ert)(e+f)=e
+\end{aligned} \right.
+\end{equation}
+```
+
   注意：在 markdown 环境下，某些特殊字符，如'\', '\*'等，会首先被 markdown 语法转义，然后再被 Latex 转义。因此有时候 '\{'需要写作'\\{'，'\*'需要写作'\\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定。  
-  
+
   **注**：如果各个方程需要在某个字符处对齐（如等号对齐），只需在所有要对齐的字符前加上 `&` 符号。如果不需要公式编号，只需在宏包名称后加上 `*` 号。
 
 $$
 \begin{equation}
 \left\{ 
 \begin{aligned}
-\min \ &{f=a-b}\\
-{s.t.}\  &{a =b(x), \quad x\in [0,L] } \\
-(c+d)(e+f)&=e \\
-(df+cg)&=0 \\
-(adv-ert)(e+f)&=e
-\end{aligned} \right.
+\min \quad&{f=a-b}\ \
+{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \ \
+(c+d)(e+f)=e \ \
+(df+cg)=0 \ \
+(adv-ert)(e+f)=e
+\end{aligned} \right .
 \end{equation}
 $$
 
-- 分情况讨论方程式
+## 4.2 分情况讨论方程式
 
 ```latex
 f(x) =
@@ -272,3 +292,7 @@ x^2 \qquad & a \gt 0 \\
 e^x \qquad & a \le 0
 \end{cases}
 $$
+
+**THE END** 感谢您的阅读\~
+
+~~P.S. 你可以不用理会下面这个版权方框~~
