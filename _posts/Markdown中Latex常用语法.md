@@ -250,16 +250,16 @@ $$
 \begin{equation}
 \left\{ 
 \begin{aligned}
-\min \quad&{f=a-b}\ \
-{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \ \
-(c+d)(e+f)=e \ \
-(df+cg)=0 \ \
+\min \quad&{f=a-b}\\
+{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \\
+(c+d)(e+f)=e \\
+(df+cg)=0 \\
 (adv-ert)(e+f)=e
 \end{aligned} \right.
 \end{equation}
 ```
 
-  注意：在 markdown 环境下，某些特殊字符，如'\', '\*'等，会首先被 markdown 语法转义，然后再被 Latex 转义。因此有时候 '\{'需要写作'\\{'，'\*'需要写作'\\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定。  
+  注意：在 `markdown` 环境下，某些特殊字符，如`\`,`*`等，会首先被 `markdown` 语法转义，然后再被 `Latex` 转义。因此有时候 '\{'需要写作'\\{'，'\*'需要写作'\\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定。  
 
   **注**：如果各个方程需要在某个字符处对齐（如等号对齐），只需在所有要对齐的字符前加上 `&` 符号。如果不需要公式编号，只需在宏包名称后加上 `*` 号。
 
@@ -267,10 +267,10 @@ $$
 \begin{equation}
 \left\{ 
 \begin{aligned}
-\min \quad&{f=a-b}\ \
-{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \ \
-(c+d)(e+f)=e \ \
-(df+cg)=0 \ \
+\min \quad&{f=a-b}\\
+{s.t.}\quad &{a =b(x), \quad x\in [0,L] } \\
+(c+d)(e+f)=e \\
+(df+cg)=0 \\
 (adv-ert)(e+f)=e
 \end{aligned} \right .
 \end{equation}

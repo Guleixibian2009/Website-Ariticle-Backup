@@ -7,7 +7,7 @@ tags:
 - Jekyll
 categories:
 - GitHub
-- [ GitHub,Pages ]
+- [ GitHub,Pages,Jekyll ]
 ---
 
 其实我一直想要做网站。在6个月前（2021年2月），我开始看着 [`W3School`](https://www.w3school.com.cn/)上的教程，用`SublimeText`写`HTML`。
