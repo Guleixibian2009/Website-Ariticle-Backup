@@ -1,5 +1,5 @@
 ---
-title: 【更新中】超详细：这个网站，到底是怎么做出来的？
+title: 超详细：这个Hexo网站，到底是怎么做出来的？
 date: 2022-08-16 19:20:27
 tags: 
 - GitHub
@@ -16,6 +16,8 @@ categories:
 **注：本教程所用平台是`Win10`，其他系统可能有细微差别~由于涉及到`GitHub`，建议先参照[3个小妙招](https://guleixibian2009.github.io/2021/08/14/3%E4%B8%AA%E5%B0%8F%E5%A6%99%E6%8B%9B%E5%8A%A0%E9%80%9F%E4%BD%A0%E7%9A%84GitHub/)来加个速！**
 
 <!--more-->
+
+---
 
 ## 1. 准备工作部分
 
@@ -106,6 +108,8 @@ npm install -g hexo-cli
 ![](https://s1.ax1x.com/2022/08/17/vDVNFI.png)
 
 > 注：我曾经在`Jekyll`那篇文章中说过，`GitHub Pages`会在每一次`commit`之后触发一次更新`action`，即自动化。由于需要在服务器上进行操作，可能会出现”排队“的情况，如果设置没错却迟迟出不来”非404“页面，我想，你可能需要继续等一等……
+
+---
 
 ## 2. 初始化、主题与一些设置
 
@@ -298,6 +302,8 @@ git clone https://github.com/theme-next/hexo-theme-next themes/next
 > - `hexo d`和`hexo g`其实可以合并成一个命令，叫做`hexo g -d`，就可以自动先生成再自动部署。
 > 
 > - `hexo s`加上参数`-o`就可以自动在浏览器中打开端口。
+
+---
 
 ## 3. `Gemini`子主题的官方配置......
 
@@ -935,6 +941,8 @@ favicon:
 
 只保留`small`和`medium`，再把文件名填进去即可。
 
+---
+
 ## 4. 文章相关配置
 
 现在我们已经把基本的一些配置好了。我们可以开始添加一些文章、页面~~（心心念念的标签、分类页）~~，还可以有搜索、`404`页面等。你会学到如何给文章添加标签、分类等等。
@@ -1024,7 +1032,7 @@ in culpa qui officia deserunt mollit anim id est laborum.
 
 #### 4.1.4 文章置顶
 
-在我的网站主页上有一篇置顶的序言，就像书的`preface`一样。`Hexo`文章在主页上的排列顺序（默认）是按发布时间后往前（即越新越往上）排布的，如何打破这个规则，强制在最上方呢？一开始我也没有查到对应的设置（都是手写进去代码），不过在翻看`hexo`的生成代码时（不太具体知道这是什么语言，似乎是一种`unmaintained`的`swig`语言，但我怎么找都没找到对应的`swig`包，又感jio像`ejs`，疯了），我注意到有一个`sticky`选项（而且似乎值是个数字），在这里：
+在我的网站主页上有一篇置顶的序言，就像书的`preface`一样。`Hexo`文章在主页上的排列顺序（默认）是按发布时间后往前（即越新越往上）排布的，如何打破这个规则，强制在最上方呢？一开始我也没有查到对应的设置（都是手写进去代码），不过在翻看`hexo`的生成代码时（不太具体知道这是什么语言，似乎是`mozilla`开发的`nunjucks`），我注意到有一个`sticky`选项（而且似乎值是个数字），在这里：
 
 ![](https://s1.ax1x.com/2022/08/31/v4LWTJ.png)
 
@@ -1202,6 +1210,8 @@ skip_render: [README.md, LICENSE]
 
 这样，我们的`README`就不会被渲染成`HTML`了。以上这些，就是我们所有的较为基础的配置与文章相关的内容了。接下来我们会涉及到一些更高级的功能，使用到第三方插件，可以自己选择。
 
+---
+
 ## 5. 第三方插件配置
 
 写到这文章已经很长了，将近20k字了。不管怎么样，我们来继续我们的教程，~~争取再写20k啊~~。
@@ -1276,7 +1286,7 @@ canvas_nest:
 
 ![](https://s1.ax1x.com/2022/09/03/vo8uY8.png)
 
-```html
+```jinja2
 ...
 
 {%- if theme.creative_commons.license and theme.creative_commons.sidebar %}
@@ -1359,7 +1369,7 @@ busuanzi_count:
 
 在`themes/next/layout/_macro/post.swig`文件的120行找到这样的代码：
 
-```html
+```jinja2
 {%- if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.post_views %}
   <span class="post-meta-item" title="{{ __('post.views') }}" id="busuanzi_container_page_pv" 
 style="display: none;">
@@ -1514,13 +1524,17 @@ Unhandled rejection Template render error: (D:\08 网站\hexo_website_tutorial\t
 
 在写到这里的时候我有点犹豫，因为原来用的`GiTalk`由于某些网络原因（见下）挂掉了，又没有决定换什么，所以迟了好久。最后我选中的是来必力`livere`。
 
-> 《论我捣鼓`GiTalk`的简要过程》
+> **《论我捣鼓`GiTalk`的简要过程》**
 > 
 > 写到这里我本想去截图，结果一看启动不起来，没办法新建`issue`也没法登录`GitHub`账号。在排查了设置、网络的问题后，我发现有个致命的问题：`cors-anywhere.azm.workers.dev`被墙掉，然后`GiTalk`无法进行`GitHub oauth`，就不能用了。
 > 
-> 我于是尝试自己搭`worker`，结果发现是所有`Cloudflare worker`的链接都被墙掉了，然后我就彻底没招了，就只好作罢。
+> 我于是尝试自己搭`worker`，结果发现是所有`Cloudflare worker`的链接都被墙掉了，然后我就彻底没招了，就只好作罢。不过......真的吗？
+> 
+> 后来我找到了`GiTalk`的仓库，里面有类似的`Issue`，甚至翻出了`CORS Anywhere`的仓库，找到了一个基于`Heroku`的备用`demo`链接。在一个`Issue`的[某条评论](https://github.com/Rob--W/cors-anywhere/issues/301#issuecomment-870990778)、[某条评论](https://github.com/Rob--W/cors-anywhere/issues/301#issuecomment-1012060775)中找到了一些备用链接。于是，就可以恢复正常了！
+> 
+> **另及：今年（2022）11月28号`Heroku`会关闭所有的免费服务，所以你看到类似`herokuapp.com`的链接都不用试了...**
 
-我还是决定把`GiTalk`也讲一讲，万一之后好了也还能用。最后的话成品是这样：
+最后的话成品是这样：
 
 ![](https://s1.ax1x.com/2022/09/07/vbFLZD.png)
 
@@ -1544,9 +1558,585 @@ Unhandled rejection Template render error: (D:\08 网站\hexo_website_tutorial\t
 
 ![](https://s1.ax1x.com/2022/09/07/vbFOde.png)
 
-（未完待续）
+#### 5.5.2 `GiTalk`
 
-## 致谢
+`GiTalk`的话是一个很“程序员”的评论系统。基于`GitHub`，支持`Markdown`，简单而优雅。不过，除了一些基本的配置以外，我们还需要更换`CORS Anywhere`的代理。我们先找到它的配置，看一下需要些什么：
+
+![](https://s1.ax1x.com/2022/09/10/vLjhLQ.png)
+
+```yml
+# Gitalk
+# For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
+gitalk:
+  enable: false
+  github_id: # GitHub repo owner
+  repo: # Repository name to store issues
+  client_id: # GitHub Application Client ID
+  client_secret: # GitHub Application Client Secret
+  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  distraction_free_mode: true # Facebook-like distraction free mode
+  # Gitalk's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
+  language: 
+```
+
+另外，这是人家的官网：
+
+![](https://s1.ax1x.com/2022/09/10/vLjWQS.png)
+
+##### 5.5.2.1 获取`GitHub Application`
+
+大部分配置都好填，可是这个`client_id`和`client_secret`怎么办？我们需要自己新建一个`GH App`。打开<https://github.com/settings/developers>，并新建一个`Oauth APP`（右上角的按钮）：
+
+![](https://s1.ax1x.com/2022/09/10/vLj2z8.png)
+
+之后需要输入应用名称，应用官网（`Homepage URL`和`Authorization callback URL`），这两个一定一定要一样的，并且得加上`https://`。
+
+![](https://s1.ax1x.com/2022/09/10/vLjfsg.png)
+
+注册以后复制`Client ID`，新建`Client secret`，按红框里的按钮。
+
+![](https://s1.ax1x.com/2022/09/10/vLjgRf.png)
+
+新建后务必立刻复制，否则就只能重新建了。
+
+![](https://s1.ax1x.com/2022/09/10/vLj5Zj.png)
+
+然后我们写到配置的`client_id`和`client_secret`里即可。至于其他的配置的话：
+
+```yml
+# Gitalk
+# For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
+gitalk:
+  enable: false
+  github_id: # GitHub repo owner
+  repo: # Repository name to store issues
+  client_id: # GitHub Application Client ID
+  client_secret: # GitHub Application Client Secret
+  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  distraction_free_mode: true # Facebook-like distraction free mode
+  # Gitalk's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
+  language:
+```
+
+`enable`打开，`github_id`写上你的`GitHub`用户名，`repo`是你网站的仓库名（比如`guleixibian2009.github.io`），`admin_user`还是填自己的用户名。`distraction_free_mode`和`language`自己按喜好调即可。
+
+##### 5.5.2.2 配置`proxy`
+
+设置是好了，可是在用之前我们还需要改`CORS Anywhere`的镜像。我们如何把`proxy`改掉呢？参阅`GiTalk`的`README`（见“致谢”，6），有一个`proxy`的选项。
+
+我们找一下这个文件（`themes/next/layout/_third-party/comments/gitalk.swig`）：
+
+![](https://s1.ax1x.com/2022/09/10/vOEatO.png)
+
+有这样一段代码。然后，把下面这段代码复制到里面去，如下：
+
+```js
+proxy       : 'https://proxy.cors.sh/https://github.com/login/oauth/access_token'
+```
+
+最后的效果就是：
+
+```js
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('{{ gitalk_js_uri }}', () => {
+    var gitalk = new Gitalk({
+      clientID    : '{{ theme.gitalk.client_id }}',
+      clientSecret: '{{ theme.gitalk.client_secret }}',
+      repo        : '{{ theme.gitalk.repo }}',
+      owner       : '{{ theme.gitalk.github_id }}',
+      admin       : ['{{ theme.gitalk.admin_user }}'],
+      id          : '{{ gitalk_md5(page.path) }}',
+      {%- if theme.gitalk.language == '' %}
+        language: window.navigator.language || window.navigator.userLanguage,
+      {% else %}
+        language: '{{ theme.gitalk.language }}',
+      {%- endif %}
+      distractionFreeMode: {{ theme.gitalk.distraction_free_mode }},
+      proxy       : 'https://proxy.cors.sh/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+```
+
+如果没看出来区别的话就直接复制替换即可。然后我们重新渲染，试一下：
+
+![](https://s1.ax1x.com/2022/09/10/vOEY0x.png)
+
+不过如果需要尝试登录的话一定要部署之后才能测试...所以上线试一下登录：
+
+![](https://s1.ax1x.com/2022/09/10/vOEt76.png)
+
+然后`GiTalk`会自动创建一个`Issue`。我们应该可以在仓库里找到这样一个`Issue`，标题就是文章名：
+
+![](https://s1.ax1x.com/2022/09/10/vOEUAK.png)
+
+如果一切正常的话，我们就配置成功了！
+
+### 5.6 鼠标点击特效
+
+当你点击页面时，你（之前是）可以看到一个彩色的爱心（的）。这个的话，先复制下面的代码：
+
+```js
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+```
+
+然后在`themes/next/source/js/src`这个文件夹（自己创建）中，新建`clicklove.js`，代码复制进去即可。我们有了代码，但如何引用呢？我们需要找到模板文件（`themes/next/layout/_layout.swig`），并复制如下代码到这个位置：
+
+```html
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="js/src/clicklove.js"></script>
+```
+
+粘贴到这里：
+
+```html
+  ...
+
+  {%- if theme.pjax %}
+    <div id="pjax">
+  {%- endif %}
+  {% include '_third-party/math/index.swig' %}
+  {% include '_third-party/quicklink.swig' %}
+
+  {{- next_inject('bodyEnd') }}
+  {%- if theme.pjax %}
+    </div>
+  {%- endif %}
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="js/src/clicklove.js"></script>
+</body>
+</html>
+```
+
+然后重新渲染试试：
+
+![](https://s1.ax1x.com/2022/09/11/vOyFds.png)
+
+然后现在我用的烟花的话，原理类似，新建一个`fireworks.js`，里面复制：
+
+```js
+class Circle {
+  constructor({ origin, speed, color, angle, context }) {
+    this.origin = origin
+    this.position = { ...this.origin }
+    this.color = color
+    this.speed = speed
+    this.angle = angle
+    this.context = context
+    this.renderCount = 0
+  }
+
+  draw() {
+    this.context.fillStyle = this.color
+    this.context.beginPath()
+    this.context.arc(this.position.x, this.position.y, 2, 0, Math.PI * 2)
+    this.context.fill()
+  }
+
+  move() {
+    this.position.x = (Math.sin(this.angle) * this.speed) + this.position.x
+    this.position.y = (Math.cos(this.angle) * this.speed) + this.position.y + (this.renderCount * 0.3)
+    this.renderCount++
+  }
+}
+
+class Boom {
+  constructor ({ origin, context, circleCount = 16, area }) {
+    this.origin = origin
+    this.context = context
+    this.circleCount = circleCount
+    this.area = area
+    this.stop = false
+    this.circles = []
+  }
+
+  randomArray(range) {
+    const length = range.length
+    const randomIndex = Math.floor(length * Math.random())
+    return range[randomIndex]
+  }
+
+  randomColor() {
+    const range = ['8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+    return '#' + this.randomArray(range) + this.randomArray(range) + this.randomArray(range) + this.randomArray(range) + this.randomArray(range) + this.randomArray(range)
+  }
+
+  randomRange(start, end) {
+    return (end - start) * Math.random() + start
+  }
+
+  init() {
+    for(let i = 0; i < this.circleCount; i++) {
+      const circle = new Circle({
+        context: this.context,
+        origin: this.origin,
+        color: this.randomColor(),
+        angle: this.randomRange(Math.PI - 1, Math.PI + 1),
+        speed: this.randomRange(1, 6)
+      })
+      this.circles.push(circle)
+    }
+  }
+
+  move() {
+    this.circles.forEach((circle, index) => {
+      if (circle.position.x > this.area.width || circle.position.y > this.area.height) {
+        return this.circles.splice(index, 1)
+      }
+      circle.move()
+    })
+    if (this.circles.length == 0) {
+      this.stop = true
+    }
+  }
+
+  draw() {
+    this.circles.forEach(circle => circle.draw())
+  }
+}
+
+class CursorSpecialEffects {
+  constructor() {
+    this.computerCanvas = document.createElement('canvas')
+    this.renderCanvas = document.createElement('canvas')
+
+    this.computerContext = this.computerCanvas.getContext('2d')
+    this.renderContext = this.renderCanvas.getContext('2d')
+
+    this.globalWidth = window.innerWidth
+    this.globalHeight = window.innerHeight
+
+    this.booms = []
+    this.running = false
+  }
+
+  handleMouseDown(e) {
+    const boom = new Boom({
+      origin: { x: e.clientX, y: e.clientY },
+      context: this.computerContext,
+      area: {
+        width: this.globalWidth,
+        height: this.globalHeight
+      }
+    })
+    boom.init()
+    this.booms.push(boom)
+    this.running || this.run()
+  }
+
+  handlePageHide() {
+    this.booms = []
+    this.running = false
+  }
+
+  init() {
+    const style = this.renderCanvas.style
+    style.position = 'fixed'
+    style.top = style.left = 0
+    style.zIndex = '999999999999999999999999999999999999999999'
+    style.pointerEvents = 'none'
+
+    style.width = this.renderCanvas.width = this.computerCanvas.width = this.globalWidth
+    style.height = this.renderCanvas.height = this.computerCanvas.height = this.globalHeight
+
+    document.body.append(this.renderCanvas)
+
+    window.addEventListener('mousedown', this.handleMouseDown.bind(this))
+    window.addEventListener('pagehide', this.handlePageHide.bind(this))
+  }
+
+  run() {
+    this.running = true
+    if (this.booms.length == 0) {
+      return this.running = false
+    }
+
+    requestAnimationFrame(this.run.bind(this))
+
+    this.computerContext.clearRect(0, 0, this.globalWidth, this.globalHeight)
+    this.renderContext.clearRect(0, 0, this.globalWidth, this.globalHeight)
+
+    this.booms.forEach((boom, index) => {
+      if (boom.stop) {
+        return this.booms.splice(index, 1)
+      }
+      boom.move()
+      boom.draw()
+    })
+    this.renderContext.drawImage(this.computerCanvas, 0, 0, this.globalWidth, this.globalHeight)
+  }
+}
+
+const cursorSpecialEffects = new CursorSpecialEffects()
+cursorSpecialEffects.init()
+```
+
+然后把`_layout.swig`里改一下就好了。效果的话，点击一下试试？
+
+### 5.7 把猫...养在博客？
+
+这一步也是很简单的啊。对对，我说的就是左下角那只白猫......
+
+![](https://s1.ax1x.com/2022/09/11/vO5tUS.png)
+
+这个插件叫做`live2d`。官方地址的话，<https://github.com/xiazeyu/live2d-widget-models/>可以查到所有的`model`。这只猫的话，它叫`tororo`，虽然我也不知道为啥...我们需要先安装依赖：
+
+```powershell
+npm install hexo-helper-live2d live2d-widget-model-tororo
+```
+
+但这样还不太行。我们需要加一段配置，加在`Hexo`的`_config.yml`里：
+
+```yml
+# live2d performance
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-tororo
+  display:
+    position: left
+    width: 280
+    height: 560
+  mobile:
+    show: true
+```
+
+我并没有了解过所有的参数，反正就是把`use`改成`live2d-widget-model-tororo`，同时改一下位置、长、宽即可。
+
+嘿嘿，看起来这一段很短，对吧？其实我当时研究了很久，网上没有太好的教程，最后才发现要安装`hexo-helper-live2d`啊。
+
+### 5.8 `AddThis Utilities`分享功能
+
+虽然我这个博客还是没什么名气，可万一之后需要有一个分享功能，怎么办？在`Next`的配置中提到了`Addthis`分享。这个怎么实现呢？
+
+![](https://s1.ax1x.com/2022/09/11/vO7Ca6.png)
+
+先到`addthis.com`注册一个账号（另及：加速`Google Recaptcha`的方法见之后的文章），然后照着这些截图来：
+
+登录之后有这样一个页面，我们选择第一个，`Share Buttons`；
+
+![](https://s1.ax1x.com/2022/09/11/vO79Vx.png)
+
+然后，选择`Floating`；
+
+![](https://s1.ax1x.com/2022/09/11/vO7Sq1.png)
+
+之后我们开始自定义工具。先选择`Selected by you`，用`ADD MORE SERVICES`改分享方式；
+
+![](https://s1.ax1x.com/2022/09/11/vOTzrR.png)
+
+最后我选了这些，比如微信、QQ、生成二维码等等；
+
+![](https://s1.ax1x.com/2022/09/11/vO7PIK.png)
+
+在第四个栏目里调整一下位置，和手机是否显示；
+
+![](https://s1.ax1x.com/2022/09/11/vO7kGD.png)
+
+最后`Activate Tool`，获取代码；
+
+![](https://s1.ax1x.com/2022/09/11/vO7ARe.png)
+
+不过我们不需要所有的代码，找一下代码里的`pubid`，应该是`ra-`打头，接着复制进配置文件里即可。
+
+![](https://s1.ax1x.com/2022/09/11/vO7FPO.png)
+
+渲染看一下。
+
+> 另及：如果没有的话，检查一下是否浏览器屏蔽了“跟踪器”。
+
+> 还有...我本来想继续写下去，写一个`Widgetpack`打分功能。可惜人家服务器有问题，功能暂时下线了，等恢复了我再加上吧。
+
+好耶！我们现在就把这8个功能配置完啦！接下来...我们来看一点更高级的东东！
+
+---
+
+## 6. 更高级的功能
+
+这一章的话，主要讲一些“看不见”的东西，比如站点地图，`RSS`等等。
+
+### 6.1 `RSS`订阅
+
+一般博客都是提供`RSS Feed`来订阅的。之前我们提到过`RSS`，包括侧边栏链接、文章结尾的友链，等等。要生成的话我们只需要安装插件`hexo-generator-feed`，每次`hexo g`都会自动生成。
+
+```powershell
+npm install hexo-generator-feed --save
+```
+
+不过，生成出来的文件在哪里呢？看一下...应该是`/atom.xml`。
+
+![](https://s1.ax1x.com/2022/09/11/vXpMo4.png)
+
+### 6.2 站点地图`sitemap`
+
+站点地图的话主要是为搜索引擎用的，这一小节算是给后文的一个铺垫。同样的，只需要安装插件`hexo-generator-sitemap`即可。这次生成出来的是`/sitemap.xml`。
+
+![](https://s1.ax1x.com/2022/09/11/vXpueU.png)
+
+### 6.3 `CDN`与图床
+
+默认的话，`next`会使用`jsdelivr`作为默认的`CDN`，不过`cdn.jsdelivr.net`这个节点不是特别的稳定（被墙过），所以我个人是换到了`fastly`节点上。具体位置的话，在这里，至于改不改就看你自己了。
+
+![](https://s1.ax1x.com/2022/09/11/vXplFJ.png)
+
+同时如果你想要往文章里添加图片，那光靠自己的域名（也就是`GitHub`）肯定是不够的，我们一定会需要一个快速的、稳定的图床。我个人推荐是`imgse`路过图床，它这个是免费的，而且已经有10年历史，上传也非常方便。它支持`10MB`内的`JPG`和`PNG`，子节点是`ax1x.com`。
+
+![](https://s1.ax1x.com/2022/09/12/vXoGPU.png)
+
+### 6.4 `Bing SEO`
+
+搜索引擎优化确实是一件很重要的事情，最简单的是`Bing`。官网的话，<https://www.bing.com/webmasters/about/>，用`Microsoft`账户登录是最方便的（除非你有`FB`或者`Google`，不过这不太可能吧）。
+
+![](https://s1.ax1x.com/2022/09/11/vXpKwF.png)
+
+![](https://s1.ax1x.com/2022/09/11/vXpmLT.png)
+
+#### 6.4.1 注册与验证
+
+登录进来之后，我们输入网址，登记页面（页面布局可能和图片有些许区别）。
+
+![](https://s1.ax1x.com/2022/09/11/vXpJQx.png)
+
+登记过后会要求我们验证页面。三种方法中最简单的是`<meta>`标签，直接复制代码，然后加到`_layout.swig`的`<head>`里去就好了。重新渲染、部署，然后等待片刻、验证。
+
+![](https://s1.ax1x.com/2022/09/11/vXpGS1.png)
+
+![](https://s1.ax1x.com/2022/09/11/vXpYy6.png)
+
+![](https://s1.ax1x.com/2022/09/11/vXp3WR.png)
+
+这就代表验证成功了。
+
+#### 6.4.2 提交网站地图
+
+点击右上角那个“提交站点地图”，并输入你刚生成的站点地图的网址，可以加速爬网。
+
+![](https://s1.ax1x.com/2022/09/11/vXp1Y9.png)
+
+![](https://s1.ax1x.com/2022/09/11/vXptOK.png)
+
+然后...等待扫描...可能会需要一段时间。
+
+这就代表扫描完了：
+
+![](https://s1.ax1x.com/2022/09/11/vX9CX6.png)
+
+不过真正能搜到是需要2天时间的，先放一下我自己的博客的截图：
+
+![](https://s1.ax1x.com/2022/09/11/vX9inK.png)
+
+当然这个`SEO`肯定是不止这么多的。相关的功能等着你去探索，包括`Microsoft Clarity`等等。
+
+### 6.5 模板文件与动态样式表
+
+最后这一小节不是具体的教你去“干什么”，而是具体“怎么干”。每个人对网站的外观跟行为逻辑有自己的看法，而自定义的终极方式就是修改底层。
+
+这里有图片
+
+在`Next`这个主题下，关于底层的两个文件夹，一个是`layout`，一个是`source`，具体见下：
+
+#### 6.5.1 `Mozilla Nunjucks`
+
+在上网查之前我一直以为我们修改的什么`_layout.swig`啊都是用什么`swig`语言写的，但一搜其实并没有这个语言（有，但极其小众，且已为`unmaintained`状态）。直到我看到`renderer.js`里的代码：
+
+```js
+/* global hexo */
+
+'use strict';
+
+const nunjucks = require('nunjucks');
+const path = require('path');
+
+...
+
+// Return a compiled renderer.
+njkRenderer.compile = function(data) {
+  const compiledTemplate = njkCompile(data);
+  // Need a closure to keep the compiled template.
+  return function(locals) {
+    return compiledTemplate.render(locals);
+  };
+};
+
+hexo.extend.renderer.register('njk', 'html', njkRenderer);
+hexo.extend.renderer.register('swig', 'html', njkRenderer);
+```
+
+才发现有`nunjucks`这种语言。它的语法可以在官网<https://mozilla.github.io/nunjucks/>查到，据说和`jinja2`（基于`Python`的）一模一样，此外还支持自定义后缀什么的。这里讲一点特殊的变量，举些例子：
+
+```jinja2
+{%- if theme.pjax %}
+    <div id="pjax">
+  {%- endif %}
+  {% include '_third-party/math/index.swig' %}
+  {% include '_third-party/quicklink.swig' %}
+
+  {{- next_inject('bodyEnd') }}
+  {%- if theme.pjax %}
+    </div>
+  {%- endif %}
+```
+
+（来自`_layout.swig`）有一个`if`语句，后面跟的是`theme.pjax`。这个`theme`指的是`Next`主题的`_config.yml`。
+
+```jinja2
+<div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  {%- if theme.avatar.url %}
+    <img class="site-author-image" itemprop="image" alt="{{ author }}"
+      src="{{ url_for(theme.avatar.url) }}">
+  {%- endif %}
+  <p class="site-author-name" itemprop="name">{{ author }}</p>
+  <div class="site-description" itemprop="description">{{ description }}</div>
+</div>
+```
+
+（来自`_partials/sidebar/site-overview.swig`）这里引用了一个变量`{{ author }}`，像这种没有`theme.`的都来自`Hexo`的`_config.yml`。
+
+```jinja2
+{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+```
+
+（来自`post.swig`）这里引用的`{{ page.title }}`有前缀`page.`，代表当前正渲染的页面（准确地说是`post`或`page`的`Front Matter`）。
+
+#### 6.5.2 `Stylus`
+
+这个就没太多好讲的了，因为我自己也没学过动态`CSS`。在`source/css`这个文件夹下所有`.styl`后缀的文件都是样式表。我们之前修改过一个书签的，还记得吗？
+
+---
+
+## 7. 总结与回顾
+
+到这里，我们所有的教程已经写完了。在这“短暂的”几十分钟，几小时，甚至几天中，我们终于成功的做出来这样一个基于`Hexo`+`Next`的博客网站了。还记得那几条命令吧，我还是写在这里备用。
+
+- `hexo clean`清除本地缓存
+
+- `hexo g`生成网页
+
+- `hexo s`打开本地服务器
+
+- `hexo d`部署到远程
+
+- `hexo new`新建文章
+
+- `hexo new page`新建页面
+
+接下来，就是你继续探索，大展身手的时刻了！嗯...48k字，我也是圆了长久以来的梦想。那么，我们就下次再见喽\~
+
+---
+
+## 8. 致谢
 
 这里写一下我参考到的文章：
 
@@ -1559,3 +2149,15 @@ Unhandled rejection Template render error: (D:\08 网站\hexo_website_tutorial\t
 4. [Hexo博客优化之Next主题美化 | nightmare_dimple的博客 | CSDN博客](https://blog.csdn.net/nightmare_dimple/article/details/86661502)
 
 5. [Hexo 常见问题解决方案 | Anran758's blog](https://anran758.github.io/blog/2020/09/27/hexo-issue/)
+
+6. [GitHub - gitalk/gitalk](https://github.com/gitalk/gitalk#options)
+
+7. [Hexo给NexT主题内添加页面点击出现爱心的效果_| 女王的禅师范的博客 | CSDN博客](https://blog.csdn.net/qq_34146679/article/details/86065071)
+
+8. [Hexo-NexT 添加打字特效、鼠标点击特效 | 小丁的个人博客](https://tding.top/archives/58cff12b.html)
+
+9. [Hexo+yilia添加helper-live2d插件宠物动画，很好玩的哦~~ | 王约翰 | 博客园](https://www.cnblogs.com/wangyuehan/p/9860371.html)
+
+10. [Github 搭建 hexo （五）- 站点地图（sitemap.xml）|_Small蒙奇的博客 | CSDN博客](https://blog.csdn.net/u010053344/article/details/50706790)
+
+**THE END**感谢您的阅读\~
