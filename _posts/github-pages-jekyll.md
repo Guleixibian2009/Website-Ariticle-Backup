@@ -2,7 +2,7 @@
 title: GithubPages-简单易上手的网站制作(Jekyll版)
 date: 2021-08-15 20:29:48
 tags:
-- Github
+- GitHub
 - Website
 - Jekyll
 categories:

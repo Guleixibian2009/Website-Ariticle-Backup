@@ -2,7 +2,7 @@
 title: 3个小妙招加速你的GitHub~
 date: 2021-08-14 08:10:08
 tags:
-- Github
+- GitHub
 - DevSidecar
 - FAQs
 - 加速

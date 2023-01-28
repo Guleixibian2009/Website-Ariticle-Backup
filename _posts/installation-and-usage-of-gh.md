@@ -2,14 +2,11 @@
 title: GitHub-Cli 的安装与使用
 date: 2022-01-09 18:58
 categories:
-- [GitHub , GitHub-Cli]
+- [GitHub , 命令行]
 tags:
-- Github
+- GitHub
 - GitHub-Cli
-
 ---
-
-# GitHub-Cli 的安装与使用
 
 **Take GitHub to the command line!**  
 ![GitHub-Cli](https://s4.ax1x.com/2022/01/08/7iGY1P.png)  
@@ -164,3 +161,7 @@ $ gh <command> <subcommand> --help
 ## 六.写在最后
 
 经过我的一通讲解，相信大家已经掌握了`GitHub-Cli`的一些基本操作，如登录，同步仓库，等等，并且“深入”了解了`Pull Request`。在此希望`GitHub-Cli`可以和广大码农一同进步，一同成长！我们下期再见~~~
+
+---
+
+**THE END**感谢您的阅读\~
